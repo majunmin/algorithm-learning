@@ -1,4 +1,4 @@
-package com.mjm;
+package com.majm;
 
 /**
  * 一句话功能简述 </br>

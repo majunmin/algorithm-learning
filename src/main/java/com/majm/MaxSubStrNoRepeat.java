@@ -1,4 +1,4 @@
-package com.mjm;
+package com.majm;
 
 import java.util.*;
 
