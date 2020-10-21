@@ -1,5 +1,7 @@
 package com.majm;
 
+import java.util.List;
+
 /**
  * @author majunmin
  * @description
@@ -28,5 +30,62 @@ public interface Solution {
      * 解释: 输入数组表示数字 4321。
      * @param digits
      */
-    default int[] plusOne(int[] digits){return null;};
+    default int[] plusOne(int[] digits){return null;}
+
+    /**
+     * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+     *
+     * 示例:
+     *
+     * 输入: [0,1,0,3,12]
+     * 输出: [1,3,12,0,0]
+     * 说明:
+     *
+     * 1. 必须在原数组上操作，不能拷贝额外的数组。
+     * 2. 尽量减少操作次数。
+
+     *
+     * @param nums
+     */
+    default void moveZeroes(int[] nums){}
+
+    default int maxArea(int[] height) {return 0;}
+
+    /**
+     * 1. 两数之和
+     * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+     *
+     * 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+     *
+     * 示例:
+     *
+     * 给定 nums = [2, 7, 11, 15], target = 9
+     *
+     * 因为 nums[0] + nums[1] = 2 + 7 = 9
+     * 所以返回 [0, 1]
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    default int[] twoSum(int[] nums, int target) {return null;}
+
+    /**
+     * 15. 三数之和
+     *
+     * 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+     * 注意：答案中不可以包含重复的三元组。
+     *
+     * 示例：
+     *
+     * 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+     * 满足要求的三元组集合为：
+     * [
+     *   [-1, 0, 1],
+     *   [-1, -1, 2]
+     * ]
+     * @param nums
+     * @return
+     */
+    default List<List<Integer>> threeSum(int[] nums) {return null;}
 }
