@@ -1,6 +1,7 @@
 package com.majm;
 
 import com.majm.letcode.LeetCode1;
+import com.majm.letcode.LeetCode15;
 
 import java.util.Arrays;
 
@@ -13,7 +14,7 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
-        Solution solution = new LeetCode1();
-        System.out.println(Arrays.toString(solution.twoSum(new int[]{3, 2, 4}, 6)));
+        Solution solution = new LeetCode15();
+        System.out.println(solution.threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
     }
 }
