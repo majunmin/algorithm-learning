@@ -1,5 +1,7 @@
 package com.majm;
 
+import com.majm.common.ListNode;
+
 import java.util.List;
 
 /**
@@ -88,4 +90,47 @@ public interface Solution {
      * @return
      */
     default List<List<Integer>> threeSum(int[] nums) {return null;}
+
+    /**
+     * 18. 四数之和
+     * 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。
+     *
+     * 注意：
+     * 答案中不可以包含重复的四元组。
+     *
+     * 示例：
+     *
+     * 给定数组 nums = [1, 0, -1, 0, -2, 2]，和 target = 0。
+     *
+     * 满足要求的四元组集合为：
+     * [
+     *   [-1,  0, 0, 1],
+     *   [-2, -1, 1, 2],
+     *   [-2,  0, 0, 2]
+     * ]
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    default List<List<Integer>> fourSum(int[] nums, int target){
+        return null;
+    }
+
+    /**
+     * 206. 反转链表
+     * 反转一个单链表。
+     *
+     * 示例:
+     *
+     * 输入: 1->2->3->4->5->NULL
+     * 输出: 5->4->3->2->1->NULL
+     * 进阶:
+     * 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+     * @param head
+     * @return
+     */
+    default ListNode reverseList(ListNode head) {
+        return null;
+    }
 }

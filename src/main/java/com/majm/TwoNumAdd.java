@@ -1,5 +1,7 @@
 package com.majm;
 
+import com.majm.common.ListNode;
+
 /**
  * 一句话功能简述 </br>
  *
@@ -11,14 +13,6 @@ package com.majm;
 public class TwoNumAdd {
 
 
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode l3, temp;

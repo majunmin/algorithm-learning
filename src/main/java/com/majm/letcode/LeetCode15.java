@@ -24,7 +24,7 @@ public class LeetCode15 implements Solution {
         }
 
         // 用于去重
-        Set<List<Integer>> res = new HashSet<>();
+//        Set<List<Integer>> res = new HashSet<>();
 
         // 1. 暴力解法 (超出时间限制) ()
         // Arrays.sort  O(n log(n))
@@ -60,31 +60,25 @@ public class LeetCode15 implements Solution {
         // 3. 夹逼
 
 
-        Arrays.sort(nums); // O(nlogn)
-        for (int i = 0; i < nums.length - 2; i++) {
-            int left = i + 1;
-            int right = nums.length - 1;
-            while(left < right) {
-                if (nums[left] + nums[right] + nums[i] == 0) {
-                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
-                    // 去重逻辑应该放在找到一个三元组之后
-                    while (right > left && nums[right] == nums[--right]){}
-                    while (right > left && nums[left] == nums[++left]){}
-
-//                  找到答案时，双指针同时收缩
-                    right--;
-                    left++;
-                } else if (nums[left] + nums[right] + nums[i] < 0) {
-                    while (left < right && nums[left] == nums[--left]) {
-                    }
-                } else if (nums[left] + nums[right] + nums[i] > 0) {
-                    while (left < right && nums[right] == nums[--right]) {
-                    }
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for(int k = 0; k < nums.length - 2; k++){
+            if(nums[k] > 0) break;
+            if(k > 0 && nums[k] == nums[k - 1]) continue;
+            int left = k + 1, right = nums.length - 1;
+            while(left < right){
+                int sum = nums[k] + nums[left] + nums[right];
+                if(sum < 0){
+                    while(left < right && nums[left] == nums[++left]);
+                } else if (sum > 0) {
+                    while(left < right && nums[right] == nums[--right]);
+                } else {
+                    res.add(new ArrayList<Integer>(Arrays.asList(nums[k], nums[left], nums[right])));
+                    while(left < right && nums[left] == nums[++left]);
+                    while(left < right && nums[right] == nums[--right]);
                 }
             }
         }
-
-
-        return new ArrayList<>(res);
+        return res;
     }
 }

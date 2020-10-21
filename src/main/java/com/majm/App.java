@@ -1,6 +1,6 @@
 package com.majm;
 
-import com.majm.letcode.LetCode66;
+import com.majm.letcode.LeetCode1;
 
 import java.util.Arrays;
 
@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
-        Solution solution = new LetCode66();
-        System.out.println(Arrays.toString(solution.plusOne(new int[]{9, 9, 9})));
+        Solution solution = new LeetCode1();
+        System.out.println(Arrays.toString(solution.twoSum(new int[]{3, 2, 4}, 6)));
     }
 }
