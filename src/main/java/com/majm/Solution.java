@@ -509,4 +509,153 @@ public interface Solution {
     default List<Integer> inorderTraversal(TreeNode root) {
         return null;
     }
+
+    /**
+     * 412. Fizz Buzz
+     * 写一个程序，输出从 1 到 n 数字的字符串表示。
+     *
+     * 1. 如果 n 是3的倍数，输出“Fizz”；
+     *
+     * 2. 如果 n 是5的倍数，输出“Buzz”；
+     *
+     * 3.如果 n 同时是3和5的倍数，输出 “FizzBuzz”。
+     *
+     * 示例：
+     *
+     * n = 15,
+     *
+     * 返回:
+     * [
+     *     "1",
+     *     "2",
+     *     "Fizz",
+     *     "4",
+     *     "Buzz",
+     *     "Fizz",
+     *     "7",
+     *     "8",
+     *     "Fizz",
+     *     "Buzz",
+     *     "11",
+     *     "Fizz",
+     *     "13",
+     *     "14",
+     *     "FizzBuzz"
+     * ]
+     * @param n
+     * @return
+     */
+    default List<String> fizzBuzz(int n) {
+        return null;
+    }
+
+    /**
+     * 239. 滑动窗口最大值
+     * 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。
+     *
+     * 返回滑动窗口中的最大值。
+     *
+     *
+     *
+     * 进阶：
+     *
+     * 你能在线性时间复杂度内解决此题吗？
+     *
+     *
+     *
+     * 示例:
+     *
+     * 输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3
+     * 输出: [3,3,5,5,6,7]
+     * 解释:
+     *
+     *   滑动窗口的位置                最大值
+     * ---------------               -----
+     * [1  3  -1] -3  5  3  6  7       3
+     *  1 [3  -1  -3] 5  3  6  7       3
+     *  1  3 [-1  -3  5] 3  6  7       5
+     *  1  3  -1 [-3  5  3] 6  7       5
+     *  1  3  -1  -3 [5  3  6] 7       6
+     *  1  3  -1  -3  5 [3  6  7]      7
+     *
+     *
+     * 提示：
+     *
+     * 1 <= nums.length <= 10^5
+     * -10^4 <= nums[i] <= 10^4
+     * 1 <= k <= nums.length
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    default int[] maxSlidingWindow(int[] nums, int k) {
+        return null;
+
+    }
+
+
+    /**
+     *
+     * @param num
+     * @return
+     */
+    default int addDigits(int num) {
+        return 0;
+    }
+
+    /**
+     * 347. 前 K 个高频元素
+     * 给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
+     *
+     *
+     *
+     * 示例 1:
+     *
+     * 输入: nums = [1,1,1,2,2,3], k = 2
+     * 输出: [1,2]
+     * 示例 2:
+     *
+     * 输入: nums = [1], k = 1
+     * 输出: [1]
+     *
+     *
+     * 提示：
+     *
+     * 你可以假设给定的 k 总是合理的，且 1 ≤ k ≤ 数组中不相同的元素的个数。
+     * 你的算法的时间复杂度必须优于 O(n log n) , n 是数组的大小。
+     * 题目数据保证答案唯一，换句话说，数组中前 k 个高频元素的集合是唯一的。
+     * 你可以按任意顺序返回答案。
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    default int[] topKFrequent(int[] nums, int k) {
+        return null;
+    }
+
+    /**
+     * 144. 二叉树的前序遍历
+     * 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+     *
+     * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+     *
+     * @param root
+     * @return
+     */
+    default List<Integer> preorderTraversal(TreeNode root) {
+        return null;
+    }
+
+    /**
+     * 145. 二叉树的后序遍历
+     * 给定一个二叉树，返回它的 后序 遍历。
+     *
+     * @param root
+     * @return
+     */
+    default List<Integer> postorderTraversal(TreeNode root) {
+        return null;
+    }
 }

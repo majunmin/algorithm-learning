@@ -5,6 +5,7 @@ import com.majm.common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -17,12 +18,11 @@ public class LeetCode94 implements Solution {
 
     @Override
     public List<Integer> inorderTraversal(TreeNode root) {
-
-        return solution3(root);
+        return solution1(root);
     }
 
     /**
-     * 递归方式实现
+     * 迭代方式实现
      * 时间复杂度: O(N)
      * 空间复杂度: O(N)
      *
@@ -40,12 +40,18 @@ public class LeetCode94 implements Solution {
             TreeNode middle = stack.pop();
             result.add(middle.val);
             root = middle.right;
-            continue;
-
         }
         return result;
     }
 
+
+    /**
+     * 递归实现
+     * 空间复杂度 要优于 solution1
+     *
+     * @param root
+     * @return
+     */
     private List<Integer> solution2(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         inOrder(root, result);
@@ -60,6 +66,12 @@ public class LeetCode94 implements Solution {
         }
     }
 
+    /**
+     * 递归实现
+     *
+     * @param root
+     * @return
+     */
     private List<Integer> solution1(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root != null) {
