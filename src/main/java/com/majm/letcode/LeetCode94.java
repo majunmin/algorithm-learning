@@ -16,9 +16,23 @@ import java.util.List;
  */
 public class LeetCode94 implements Solution {
 
+
+
     @Override
     public List<Integer> inorderTraversal(TreeNode root) {
-        return solution1(root);
+        List<Integer> result = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        while(!stack.isEmpty() || root != null){
+            while (root != null){
+                stack.push(root);
+                root = root.left;
+            }
+            TreeNode node = stack.removeFirst();
+            result.add(node.val);
+            root = node.right;
+        }
+        return result;
+
     }
 
     /**

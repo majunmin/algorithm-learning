@@ -9,6 +9,7 @@ import java.util.Deque;
 import java.util.List;
 
 /**
+ * 二叉树后序遍历
  * @author majunmin
  * @description
  * @datetime 2020/10/31 3:22 下午
@@ -18,6 +19,21 @@ public class LeetCode145 implements Solution {
 
     @Override
     public List<Integer> postorderTraversal(TreeNode root) {
+        return solution1(root);
+    }
+
+
+
+
+
+
+
+    /**
+     * 迭代方式 Stack
+     * @param root
+     * @return
+     */
+    public List<Integer> solution2(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode prev = null;
