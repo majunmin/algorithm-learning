@@ -19,21 +19,21 @@ public class LeetCode_0078 implements Solution {
     @Override
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        dfs(result, new ArrayList<Integer>(), nums, 0);
+        dfs(result, new ArrayList<>(), nums, 0);
         return result;
     }
 
-    private void dfs(List<List<Integer>> result, ArrayList<Integer> path, int[] nums, int level) {
-        if (level == nums.length){
+    private void dfs(List<List<Integer>> result, List<Integer> path, int[] nums, int level) {
+        if (level == nums.length) {
             result.add(new ArrayList<>(path));
             return;
         }
 
-         //两种选择  添加  nums[level]  vs 不添加 nums[level]
+        //两种选择  添加  nums[level]  vs 不添加 nums[level]
         path.add(nums[level]);
-        dfs(result, path, nums, level+1);
+        dfs(result, path, nums, level + 1);
         path.remove(new Integer(nums[level]));
-        dfs(result, path, nums, level+1);
+        dfs(result, path, nums, level + 1);
     }
 
 
@@ -139,6 +139,12 @@ public class LeetCode_0078 implements Solution {
                 path.remove(path.size() - 1);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Solution leetCode = new LeetCode_0078();
+        final List<List<Integer>> result = leetCode.subsets(new int[]{1, 2, 3});
+        System.out.println(result);
     }
 
 }
