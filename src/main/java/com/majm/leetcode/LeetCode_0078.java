@@ -19,21 +19,20 @@ public class LeetCode_0078 implements Solution {
     @Override
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        dfs(result, new ArrayList<>(), nums, 0);
+        dfs2(0, new ArrayList<>(), nums, result);
         return result;
     }
 
-    private void dfs(List<List<Integer>> result, List<Integer> path, int[] nums, int level) {
+    private void dfs2(int level, List<Integer> path, int[] nums, List<List<Integer>> result) {
         if (level == nums.length) {
             result.add(new ArrayList<>(path));
             return;
         }
-
-        //两种选择  添加  nums[level]  vs 不添加 nums[level]
+        // 加入当前数  不要当前数
         path.add(nums[level]);
-        dfs(result, path, nums, level + 1);
-        path.remove(new Integer(nums[level]));
-        dfs(result, path, nums, level + 1);
+        dfs2(level + 1, path, nums, result);
+        path.remove(path.size() - 1);
+        dfs2(level + 1, path, nums, result);
     }
 
 
@@ -74,7 +73,7 @@ public class LeetCode_0078 implements Solution {
      * @param nums
      * @return
      */
-    private List<List<Integer>> solution2(int[] nums) {
+    private List<List<Integer>> dfsSolution(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         dfs(0, nums, new ArrayList<>(), result);
         return result;
@@ -109,7 +108,7 @@ public class LeetCode_0078 implements Solution {
      * @param nums
      * @return
      */
-    public List<List<Integer>> solution1(int[] nums) {
+    public List<List<Integer>> backTraceSolution(int[] nums) {
         if (nums.length == 0) {
             return new ArrayList<>();
         }
@@ -141,9 +140,36 @@ public class LeetCode_0078 implements Solution {
         }
     }
 
+    /**
+     * 巧妙利用 -1 ,优化
+     *
+     * @param nums
+     * @return
+     */
+    private List<List<Integer>> backTraceSolution2(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        backTrace2(new ArrayList<>(), 0, nums, result);
+        return result;
+    }
+
+    private void backTrace2(List<Integer> path, int begin, int[] nums, List<List<Integer>> result) {
+        result.add(new ArrayList<>(path));
+        // terminate
+        if (begin == nums.length) {
+            return;
+        }
+
+        // for choice in choiceList
+        for (int i = begin; i < nums.length; i++) {
+            path.add(nums[i]);
+            backTrace2(path, i + 1, nums, result);
+            path.remove(path.size() - 1);
+        }
+    }
+
     public static void main(String[] args) {
-        Solution leetCode = new LeetCode_0078();
-        final List<List<Integer>> result = leetCode.subsets(new int[]{1, 2, 3});
+        LeetCode_0078 leetCode = new LeetCode_0078();
+        final List<List<Integer>> result = leetCode.backTraceSolution2(new int[]{1, 2, 3});
         System.out.println(result);
     }
 

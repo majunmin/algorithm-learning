@@ -21,6 +21,29 @@ public class LeetCode_0039 implements Solution {
     @Override
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
+        backTrace3(0, new ArrayList<>(), candidates, target, result);
+        return result;
+    }
+
+    private void backTrace3(int begin, List<Integer> path, int[] candidates, int target, List<List<Integer>> result) {
+        if (target == 0) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        if (target < 0) {
+            return;
+        }
+        // for choice in choiceList
+        for (int i = begin; i < candidates.length; i++) {
+            path.add(candidates[i]);
+            backTrace3(i, path, candidates, target - candidates[i], result);
+            path.remove(path.size() - 1);
+        }
+    }
+
+
+    private List<List<Integer>> backTraceSolution(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
         if (candidates.length == 0) {
             return result;
         }
