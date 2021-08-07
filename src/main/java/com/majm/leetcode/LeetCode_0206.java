@@ -24,19 +24,42 @@ public class LeetCode_0206 implements Solution {
         if (head == null || head.next == null) {
             return head;
         }
+        ListNode newNode = reverseList(head.next);
+        head.next.next = head;
+        return newNode;
+    }
 
+
+    /**
+     * 利用哑结点实现,易于理解
+     *
+     * @param head
+     * @return
+     */
+    private ListNode iterSolution2(ListNode head) {
         ListNode dummyNode = new ListNode();
-        ListNode curNode = head;
-        while (curNode != null) {
-            // 暂存head 节点的下一个节点
-            ListNode temp = curNode.next;
-            curNode.next = dummyNode.next;
-            dummyNode.next = curNode;
-            curNode = temp;
+        // 遍历链表,插入到  dummyNode 后面,就可以实现反转了
+        while (head != null) {
+            ListNode tempNode = head;
+            head = head.next;
+
+            // 插入到  dummyNode后面
+            tempNode.next = dummyNode.next;
+            dummyNode.next = tempNode;
         }
         return dummyNode.next;
-
     }
+
+//    // terminate
+//        if (head == null || head.next == null) {
+//        return head;
+//    }
+//
+//    // 画图解决
+//    ListNode newNode = reverseList(head.next);
+//    head.next.next = head;
+//    head.next = null;
+//    return newNode;
 
 
     /**
@@ -70,17 +93,17 @@ public class LeetCode_0206 implements Solution {
         // 1. 遍历链表
 
         // 1. 构建一个新链表(往链表的头部插值很容易)
-        ListNode newNode = null;
-        ListNode oldNode;
+        ListNode newNode = head;
+        ListNode tmpNode;
         while (head.next != null) {
             // 保存head指针
-            oldNode = head;
+            tmpNode = head;
             // 记录head指针
             head = head.next;
             // 往新链表头部插值
-            oldNode.next = newNode;
+            tmpNode.next = newNode;
             // 更新新链表头
-            newNode = oldNode;
+            newNode = tmpNode;
         }
         return newNode;
     }

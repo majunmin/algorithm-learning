@@ -4,7 +4,7 @@ import com.majm.Solution;
 import com.majm.common.ListNode;
 
 /**
- * 反转链表 </br>
+ * 反转链表|| </br>
  *
  * @author majunmin
  * @description
@@ -15,8 +15,28 @@ public class LeetCode_0092 implements Solution {
 
     @Override
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        return solution2(head, left, right);
+        ListNode dummyNode = new ListNode();
+        dummyNode.next = head;
+        ListNode prev = dummyNode;
+        for (int i = 1; i < left; i++) {
+            prev = prev.next;
+        }
+        ListNode leftNode = prev.next;
+        ListNode tmpNode = null;
+
+        // 循环将 left.next 插入到  prev.next
+        for (int i = 1; i <= right - left; i++) {
+            // 暂存 leftNode 下个节点
+            tmpNode = leftNode.next;
+            leftNode.next = leftNode.next.next;
+
+            // insert
+            tmpNode.next = prev.next;
+            prev.next = tmpNode;
+        }
+        return dummyNode.next;
     }
+
 
     private ListNode solution2(ListNode head, int left, int right) {
         return null;
