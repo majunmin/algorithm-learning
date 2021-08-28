@@ -2,7 +2,6 @@ package com.majm.leetcode;
 
 import com.majm.Solution;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +11,7 @@ import java.util.Map;
  * @datetime 2020/10/21 9:09 上午
  * @since
  */
-public class LeetCode1 implements Solution {
+public class LeetCode_0001 implements Solution {
 
     @Override
     public int[] twoSum(int[] nums, int target) {
@@ -61,13 +60,13 @@ public class LeetCode1 implements Solution {
         }
         // 2. hash  O(N)
         // 使用哈希表，可以将寻找 target - x 的时间复杂度降低到从 O(N) 降低到 O(1)。
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        Map<Integer, Integer> cache = new HashMap<>();
         for (int i = 0; i < nums.length; ++i) {
             int k = target - nums[i];
-            if (hashMap.containsKey(k)) {
-                return new int[]{hashMap.get(k), i};
+            if (cache.containsKey(k)) {
+                return new int[]{cache.get(k), i};
             }
-            hashMap.put(nums[i], i);
+            cache.put(nums[i], i);
         }
         return new int[]{};
     }

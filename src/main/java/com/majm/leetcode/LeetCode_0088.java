@@ -25,15 +25,35 @@ public class LeetCode_0088 implements Solution {
      */
     @Override
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        solution2(nums1, m, nums2, n);
+        int insertIdx = 0;
+        for (int curNum : nums2) {
+            while (insertIdx < m && nums1[insertIdx] < curNum) {
+                insertIdx++;
+            }
+            for (int i = m; i > insertIdx; i++) {
+                nums1[i] = nums1[i - 1];
+            }
+            nums1[insertIdx++] = curNum;
+            m++;
+        }
     }
 
+    /**
+     * 利用额外的空间
+     * 时间复杂度 O(m + n)
+     * 空间复杂度 O(m + n)
+     *
+     * @param nums1
+     * @param m
+     * @param nums2
+     * @param n
+     */
     private void solution2(int[] nums1, int m, int[] nums2, int n) {
         if (n == 0) {
             return;
         }
 
-        int[] result = new int[m+n];
+        int[] result = new int[m + n];
         int idx = 0;
         int i = 0;
         int j = 0;
@@ -78,4 +98,10 @@ public class LeetCode_0088 implements Solution {
             nums1[insertIdx++] = curNum;
         }
     }
+
+    public static void main(String[] args) {
+        Solution leetCdoe = new LeetCode_0088();
+        leetCdoe.merge(new int[]{1, 2, 3, 0, 0, 0}, 3, new int[]{2, 5, 6}, 3);
+    }
+
 }
