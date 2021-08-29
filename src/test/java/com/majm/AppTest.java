@@ -1,11 +1,16 @@
 package com.majm;
 
+import com.majm.common.ListNode;
 import com.majm.common.TreeNode;
-import com.majm.leetcode.LeetCode_0078;
-import com.majm.leetcode.LeetCode_0145;
-import com.majm.leetcode.LeetCode_102;
+import com.majm.leetcode.LeetCode_0023;
 import com.majm.leetcode.LeetCode_0034;
+import com.majm.leetcode.LeetCode_0076;
+import com.majm.leetcode.LeetCode_0078;
 import com.majm.leetcode.LeetCode_0088;
+import com.majm.leetcode.LeetCode_0145;
+import com.majm.leetcode.LeetCode_0209;
+import com.majm.leetcode.LeetCode_0239;
+import com.majm.leetcode.LeetCode_0102;
 import org.junit.Test;
 
 import java.lang.ref.WeakReference;
@@ -62,7 +67,7 @@ public class AppTest {
     @Test
     public void testLeetCode34() {
         Solution leetCode = new LeetCode_0034();
-        int[] num1 = new int[]{1,2,5,6,9};
+        int[] num1 = new int[]{1, 2, 5, 6, 9};
         int[] result = leetCode.searchRange(num1, 8);
         System.out.println(Arrays.toString(result));
     }
@@ -76,7 +81,7 @@ public class AppTest {
 
     @Test
     public void testLeetCode102() {
-        Solution leetCode = new LeetCode_102();
+        Solution leetCode = new LeetCode_0102();
         final TreeNode root = new TreeNode(3);
         TreeNode leftNode = new TreeNode(9);
         TreeNode rightNode = new TreeNode(20);
@@ -102,5 +107,40 @@ public class AppTest {
 //        rightNode.left = rl;
 //        rightNode.right = rr;
         System.out.println(leetCode.postorderTraversal(root));
+    }
+
+    @Test
+    public void testLeetCode0239() {
+        final LeetCode_0239 leetCode = new LeetCode_0239();
+        System.out.println(Arrays.toString(leetCode.maxSlidingWindow(new int[]{7,2,4}, 2)));
+
+    }
+
+    @Test
+    public void testLeetCode0023(){
+        ListNode l1 = null;
+        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(5)));
+        ListNode l3 = null;
+        ListNode l4 = new ListNode(1, new ListNode(5, new ListNode(9)));
+
+        ListNode[] nodes = {l1, l2, l3, l4};
+        LeetCode_0023 leetCode = new LeetCode_0023();
+        leetCode.mergeKLists(nodes);
+    }
+
+
+    @Test
+    public void testLeetCode0209(){
+        LeetCode_0209 leetCode0209 = new LeetCode_0209();
+        System.out.println(leetCode0209.minSubArrayLen(7, new int[]{2,3,1,2,4,3}));
+        System.out.println(leetCode0209.minSubArrayLen(22, new int[]{2,3,1,2,4,3}));
+    }
+
+    @Test
+    public void testLeetCode0076(){
+        LeetCode_0076 leetCode = new LeetCode_0076();
+        System.out.println(leetCode.minWindow("ADOBECODEBANC", "ABC"));
+        System.out.println(leetCode.minWindow("ADOBECODEBANC", "ABCZ"));
+        System.out.println(leetCode.minWindow("a", "a"));
     }
 }

@@ -4,9 +4,7 @@ import com.majm.common.ListNode;
 import com.majm.common.TreeNode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author majunmin
@@ -15,6 +13,28 @@ import java.util.Map;
  * @since
  */
 public interface Solution {
+
+    /**
+     * 5. 最长回文子串
+     * https://leetcode-cn.com/problems/longest-palindromic-substring/5. 最长回文子串
+     *
+     * @param s
+     * @return
+     */
+    default String longestPalindrome(String s) {
+        return "";
+    }
+
+    /**
+     * 53. 最大子序和
+     * https://leetcode-cn.com/problems/maximum-subarray/
+     *
+     * @param nums
+     * @return
+     */
+    default int maxSubArray(int[] nums) {
+        return 0;
+    }
 
     /**
      * letcode 66
@@ -143,6 +163,29 @@ public interface Solution {
         return null;
     }
 
+    default String reverseStr(String s, int k) {
+        return "";
+    }
+
+    /**
+     * 45. 跳跃游戏 II
+     * https://leetcode-cn.com/problems/jump-game-ii/
+     *
+     * @param nums
+     * @return
+     */
+    default int jump(int[] nums) {
+        return 0;
+    }
+
+    /**
+     * @param nums
+     * @return
+     */
+    default int maxSubarraySumCircular(int[] nums) {
+        return 0;
+    }
+
 
     /**
      * https://leetcode-cn.com/problems/merge-sorted-array/
@@ -154,6 +197,39 @@ public interface Solution {
      * @param n
      */
     default void merge(int[] nums1, int m, int[] nums2, int n) {
+    }
+
+    /**
+     * 39. 组合总和
+     * https://leetcode-cn.com/problems/combination-sum/
+     *
+     * @param candidates
+     * @param target
+     * @return
+     */
+    default List<List<Integer>> combinationSum(int[] candidates, int target) {
+        return null;
+    }
+
+
+    /**
+     * 40. 组合总和 II
+     * https://leetcode-cn.com/problems/combination-sum-ii/
+     *
+     * @param candidates
+     * @param target
+     * @return
+     */
+    default List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        return null;
+    }
+
+    /**
+     * @param root
+     * @return
+     */
+    default boolean isBalanced(TreeNode root) {
+        return false;
     }
 
     /**
@@ -174,6 +250,18 @@ public interface Solution {
         return null;
     }
 
+
+    /**
+     * 74. 搜索二维矩阵
+     * https://leetcode-cn.com/problems/search-a-2d-matrix/
+     *
+     * @param matrix
+     * @param target
+     * @return
+     */
+    default boolean searchMatrix(int[][] matrix, int target) {
+        return false;
+    }
 
     /**
      * https://leetcode-cn.com/problems/reverse-linked-list-ii/
@@ -206,6 +294,38 @@ public interface Solution {
         return false;
     }
 
+
+    default ListNode mergeKLists(ListNode[] lists) {
+        return null;
+    }
+
+    /**
+     * 152. 乘积最大子数组
+     * https://leetcode-cn.com/problems/maximum-product-subarray/
+     *
+     * @param nums
+     * @return
+     */
+    default int maxProduct(int[] nums) {
+        return 0;
+    }
+
+
+    /**
+     * 153. 寻找旋转排序数组中的最小值
+     * 154. 寻找旋转排序数组中的最小值 II
+     * <p>
+     * https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
+     * https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/
+     *
+     * @param nums
+     * @return
+     */
+    default int findMin(int[] nums) {
+        return 0;
+    }
+
+
     /**
      * 24. 两两交换链表中的节点
      * <p>
@@ -234,6 +354,14 @@ public interface Solution {
     }
 
     /**
+     * @param n
+     * @return
+     */
+    default int firstBadVersion(int n) {
+        return 0;
+    }
+
+    /**
      * 21. 合并两个有序链表
      * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
      * <p>
@@ -248,6 +376,42 @@ public interface Solution {
      */
     default ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         return null;
+    }
+
+    /**
+     * 139. 单词拆分
+     * https://leetcode-cn.com/problems/word-break/
+     *
+     * @param s
+     * @param wordDict
+     * @return
+     */
+    default boolean wordBreak(String s, List<String> wordDict) {
+        return true;
+    }
+
+
+    /**
+     * 217. 存在重复元素
+     * https://leetcode-cn.com/problems/contains-duplicate/
+     *
+     * @param nums
+     * @return
+     */
+    default boolean containsDuplicate(int[] nums) {
+        return false;
+    }
+
+    /**
+     * LeetCode 0076
+     * https://leetcode-cn.com/problems/minimum-window-substring/
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    default String minWindow(String s, String t) {
+        return "";
     }
 
     /**
@@ -285,6 +449,18 @@ public interface Solution {
      */
     default String getHint(String secret, String guess) {
         return null;
+    }
+
+
+    /**
+     * 797. 所有可能的路径
+     * https://leetcode-cn.com/problems/all-paths-from-source-to-target/
+     *
+     * @param graph
+     * @return
+     */
+    default List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        return new ArrayList<>();
     }
 
     /**
@@ -325,6 +501,35 @@ public interface Solution {
         return false;
     }
 
+    /**
+     * 121. 买卖股票的最佳时机
+     * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+     * <p>
+     * 122. 买卖股票的最佳时机 II
+     * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+     * <p>
+     * 309. 最佳买卖股票时机含冷冻期
+     * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+     *
+     * @param prices
+     * @return
+     */
+    default int maxProfit(int[] prices) {
+        return 0;
+    }
+
+    /**
+     * 714. 买卖股票的最佳时机含手续费
+     * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+     *
+     * @param prices
+     * @param fee
+     * @return
+     */
+    default int maxProfit(int[] prices, int fee) {
+        return 0;
+    }
+
     default int largestRectangleArea(int[] heights) {
         return 0;
     }
@@ -361,6 +566,31 @@ public interface Solution {
      */
     default int[] intersect(int[] nums1, int[] nums2) {
         return null;
+    }
+
+    /**
+     * 438. 找到字符串中所有字母异位词
+     * https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/
+     *
+     * @param s
+     * @param p
+     * @return
+     */
+    default List<Integer> findAnagrams(String s, String p) {
+        return null;
+    }
+
+
+    /**
+     * 443. 压缩字符串
+     * <p>
+     * https://leetcode-cn.com/problems/string-compression/
+     *
+     * @param chars
+     * @return
+     */
+    default int compress(char[] chars) {
+        return 0;
     }
 
     /**
@@ -442,6 +672,51 @@ public interface Solution {
     }
 
     /**
+     * 198. 打家劫舍
+     * https://leetcode-cn.com/problems/house-robber/
+     *
+     * @param nums
+     * @return
+     */
+    default int rob(int[] nums) {
+        return 0;
+    }
+
+    /**
+     * 234. 回文链表
+     * https://leetcode-cn.com/problems/palindrome-linked-list/
+     *
+     * @param head
+     * @return
+     */
+    default boolean isPalindrome(ListNode head) {
+        return false;
+    }
+
+    /**
+     * 740. 删除并获得点数
+     * https://leetcode-cn.com/problems/delete-and-earn/
+     *
+     * @param nums
+     * @return
+     */
+    default int deleteAndEarn(int[] nums) {
+        return 0;
+    }
+
+    /**
+     * 789. 逃脱阻碍者
+     * https://leetcode-cn.com/problems/escape-the-ghosts/
+     *
+     * @param ghosts
+     * @param target
+     * @return
+     */
+    default boolean escapeGhosts(int[][] ghosts, int[] target) {
+        return false;
+    }
+
+    /**
      * 1207. 独一无二的出现次数
      * 给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。
      * <p>
@@ -474,6 +749,45 @@ public interface Solution {
      */
     default boolean uniqueOccurrences(int[] arr) {
         return false;
+    }
+
+
+    /**
+     * 509. 斐波那契数
+     * https://leetcode-cn.com/problems/fibonacci-number/
+     *
+     * @param n
+     * @return
+     */
+    default int fib(int n) {
+        return 0;
+    }
+
+    /**
+     * 567. 字符串的排列
+     * https://leetcode-cn.com/problems/permutation-in-string/
+     *
+     * @param s1
+     * @param s2
+     * @return
+     */
+    default boolean checkInclusion(String s1, String s2) {
+        return false;
+    }
+
+    default int tribonacci(int n) {
+        return 0;
+    }
+
+    /**
+     * 746. 使用最小花费爬楼梯
+     * https://leetcode-cn.com/problems/min-cost-climbing-stairs/
+     *
+     * @param cost
+     * @return
+     */
+    default int minCostClimbingStairs(int[] cost) {
+        return 0;
     }
 
     /**
@@ -659,6 +973,17 @@ public interface Solution {
 
 
     /**
+     * 300. 最长递增子序列
+     * https://leetcode-cn.com/problems/longest-increasing-subsequence/
+     *
+     * @param nums
+     * @return
+     */
+    default int lengthOfLIS(int[] nums) {
+        return 0;
+    }
+
+    /**
      * @param num
      * @return
      */
@@ -743,6 +1068,18 @@ public interface Solution {
      * @return
      */
     default int maxDepth(TreeNode root) {
+        return 0;
+    }
+
+    /**
+     * 322. 零钱兑换
+     * https://leetcode-cn.com/problems/coin-change/
+     *
+     * @param coins
+     * @param amount
+     * @return
+     */
+    default int coinChange(int[] coins, int amount) {
         return 0;
     }
 
@@ -1112,6 +1449,19 @@ public interface Solution {
         return 0.0;
     }
 
+
+    /**
+     * 77. 组合
+     * https://leetcode-cn.com/problems/combinations/
+     *
+     * @param n
+     * @param k
+     * @return
+     */
+    default List<List<Integer>> combine(int n, int k) {
+        return null;
+    }
+
     /**
      * 78. 子集
      * 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
@@ -1139,6 +1489,19 @@ public interface Solution {
     default List<List<Integer>> subsets(int[] nums) {
         return null;
     }
+
+
+    /**
+     * 90. 子集 II
+     * https://leetcode-cn.com/problems/subsets-ii/
+     *
+     * @param nums
+     * @return
+     */
+    default List<List<Integer>> subsetsWithDup(int[] nums) {
+        return null;
+    }
+
 
     /**
      * 17. [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
@@ -1381,6 +1744,20 @@ public interface Solution {
         return 0;
     }
 
+
+    /**
+     * leetcode 209. 长度最小的子数组
+     * https://leetcode-cn.com/problems/minimum-size-subarray-sum/
+     *
+     * @param target
+     * @param nums
+     * @return
+     */
+    default int minSubArrayLen(int target, int[] nums) {
+        return 0;
+    }
+
+
     /**
      * 455. 分发饼干
      * 假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。
@@ -1559,6 +1936,29 @@ public interface Solution {
         return null;
     }
 
+    /**
+     * 457. 环形数组是否存在循环
+     * https://leetcode-cn.com/problems/circular-array-loop/
+     *
+     * @param nums
+     * @return
+     */
+    default boolean circularArrayLoop(int[] nums) {
+        return false;
+    }
+
+
+    /**
+     * 1567. 乘积为正数的最长子数组长度
+     * https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product/
+     *
+     * @param nums
+     * @return
+     */
+    default int getMaxLen(int[] nums) {
+        return 0;
+    }
+
 
     /**
      * leetcode 1210
@@ -1571,5 +1971,44 @@ public interface Solution {
         return 0;
     }
 
+
+    /**
+     * https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string/
+     *
+     * @param s
+     * @return
+     */
+    default String removeDuplicates(String s) {
+        return "";
+    }
+
+
+    /**
+     * 189. 旋转数组
+     * https://leetcode-cn.com/problems/rotate-array/
+     *
+     * @param nums
+     * @param k
+     */
+    default void rotate(int[] nums, int k) {
+
+    }
+
+
+    /**
+     * https://leetcode-cn.com/problems/sum-of-subarray-minimums/
+     * 907. 子数组的最小值之和
+     *
+     * @param arr
+     * @return
+     */
+    default int sumSubarrayMins(int[] arr) {
+        return 0;
+    }
+
+
+    default int countPairs(int[] deliciousness) {
+        return 0;
+    }
 
 }
