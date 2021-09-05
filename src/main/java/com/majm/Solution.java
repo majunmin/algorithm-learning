@@ -36,6 +36,42 @@ public interface Solution {
         return 0;
     }
 
+
+    /**
+     * 62. 不同路径
+     * https://leetcode-cn.com/problems/unique-paths/
+     *
+     * @param m
+     * @param n
+     * @return
+     */
+    default int uniquePaths(int m, int n) {
+        return 0;
+    }
+
+    /**
+     * 63. 不同路径 II
+     * https://leetcode-cn.com/problems/unique-paths-ii/
+     *
+     * @param obstacleGrid
+     * @return
+     */
+    default int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        return 0;
+    }
+
+    /**
+     * 64. 最小路径和
+     * https://leetcode-cn.com/problems/minimum-path-sum/
+     *
+     * @param grid
+     * @return
+     */
+    default int minPathSum(int[][] grid) {
+        return 0;
+    }
+
+
     /**
      * letcode 66
      * <p>
@@ -168,6 +204,17 @@ public interface Solution {
     }
 
     /**
+     * 36. 有效的数独
+     * https://leetcode-cn.com/problems/valid-sudoku/
+     *
+     * @param board
+     * @return
+     */
+    default boolean isValidSudoku(char[][] board) {
+        return false;
+    }
+
+    /**
      * 45. 跳跃游戏 II
      * https://leetcode-cn.com/problems/jump-game-ii/
      *
@@ -225,11 +272,56 @@ public interface Solution {
     }
 
     /**
+     * 96. 不同的二叉搜索树
+     * https://leetcode-cn.com/problems/unique-binary-search-trees/
+     *
+     * @param n
+     * @return
+     */
+    default int numTrees(int n) {
+        return 0;
+    }
+
+    /**
      * @param root
      * @return
      */
     default boolean isBalanced(TreeNode root) {
         return false;
+    }
+
+
+    /**
+     * 118. 杨辉三角
+     * Vhttps://leetcode-cn.com/problems/pascals-triangle/
+     *
+     * @param numRows
+     * @return
+     */
+    default List<List<Integer>> generate(int numRows) {
+        return null;
+    }
+
+    /**
+     * 119. 杨辉三角 II
+     * https://leetcode-cn.com/problems/pascals-triangle-ii/
+     *
+     * @param rowIndex
+     * @return
+     */
+    default List<Integer> getRow(int rowIndex) {
+        return null;
+    }
+
+    /**
+     * 135. 分发糖果
+     * https://leetcode-cn.com/problems/candy/
+     *
+     * @param ratings
+     * @return
+     */
+    default int candy(int[] ratings) {
+        return 0;
     }
 
     /**
@@ -252,6 +344,29 @@ public interface Solution {
 
 
     /**
+     * 221. 最大正方形
+     * https://leetcode-cn.com/problems/maximal-square/
+     *
+     * @param matrix
+     * @return
+     */
+    default int maximalSquare(char[][] matrix) {
+        return 0;
+    }
+
+    /**
+     * 264. 丑数 II
+     * https://leetcode-cn.com/problems/ugly-number-ii/
+     *
+     * @param n
+     * @return
+     */
+    default int nthUglyNumber(int n) {
+        return 0;
+    }
+
+
+    /**
      * 74. 搜索二维矩阵
      * https://leetcode-cn.com/problems/search-a-2d-matrix/
      *
@@ -261,6 +376,18 @@ public interface Solution {
      */
     default boolean searchMatrix(int[][] matrix, int target) {
         return false;
+    }
+
+
+    /**
+     * 91. 解码方法
+     * https://leetcode-cn.com/problems/decode-ways/
+     *
+     * @param s
+     * @return
+     */
+    default int numDecodings(String s) {
+        return 0;
     }
 
     /**
@@ -453,6 +580,18 @@ public interface Solution {
 
 
     /**
+     * 413. 等差数列划分
+     * https://leetcode-cn.com/problems/arithmetic-slices/
+     *
+     * @param nums
+     * @return
+     */
+    default int numberOfArithmeticSlices(int[] nums) {
+        return 0;
+    }
+
+
+    /**
      * 797. 所有可能的路径
      * https://leetcode-cn.com/problems/all-paths-from-source-to-target/
      *
@@ -461,6 +600,18 @@ public interface Solution {
      */
     default List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         return new ArrayList<>();
+    }
+
+
+    /**
+     * 931. 下降路径最小和
+     * https://leetcode-cn.com/problems/minimum-falling-path-sum/
+     *
+     * @param matrix
+     * @return
+     */
+    default int minFallingPathSum(int[][] matrix) {
+        return 0;
     }
 
     /**
@@ -501,12 +652,28 @@ public interface Solution {
         return false;
     }
 
+
+    /**
+     * 120. 三角形最小路径和
+     * https://leetcode-cn.com/problems/triangle/
+     *
+     * @param triangle
+     * @return
+     */
+    default int minimumTotal(List<List<Integer>> triangle) {
+        return 0;
+    }
+
+
     /**
      * 121. 买卖股票的最佳时机
      * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
      * <p>
      * 122. 买卖股票的最佳时机 II
      * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+     * <p>
+     * 123. 买卖股票的最佳时机 III
+     * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
      * <p>
      * 309. 最佳买卖股票时机含冷冻期
      * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
@@ -530,35 +697,35 @@ public interface Solution {
         return 0;
     }
 
+    /**
+     * @param mat
+     * @param r
+     * @param c
+     * @return
+     */
+    default int[][] matrixReshape(int[][] mat, int r, int c) {
+        return null;
+    }
+
     default int largestRectangleArea(int[] heights) {
         return 0;
     }
 
+
+    /**
+     * 349. 两个数组的交集
+     * https://leetcode-cn.com/problems/intersection-of-two-arrays/
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    default int[] intersection(int[] nums1, int[] nums2) {
+        return null;
+    }
+
     /**
      * 350. 两个数组的交集 II
-     * 给定两个数组，编写一个函数来计算它们的交集。
-     * <p>
-     * <p>
-     * <p>
-     * 示例 1：
-     * <p>
-     * 输入：nums1 = [1,2,2,1], nums2 = [2,2]
-     * 输出：[2,2]
-     * 示例 2:
-     * <p>
-     * 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
-     * 输出：[4,9]
-     * <p>
-     * <p>
-     * 说明：
-     * <p>
-     * 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。
-     * 我们可以不考虑输出结果的顺序。
-     * 进阶：
-     * <p>
-     * 如果给定的数组已经排好序呢？你将如何优化你的算法？
-     * 如果 nums1 的大小比 nums2 小很多，哪种方法更优？
-     * 如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
      *
      * @param nums1
      * @param nums2
@@ -2009,6 +2176,18 @@ public interface Solution {
 
     default int countPairs(int[] deliciousness) {
         return 0;
+    }
+
+    /**
+     * 1314. 矩阵区域和
+     * https://leetcode-cn.com/problems/matrix-block-sum/
+     *
+     * @param mat
+     * @param k
+     * @return
+     */
+    default int[][] matrixBlockSum(int[][] mat, int k) {
+        return null;
     }
 
 }
