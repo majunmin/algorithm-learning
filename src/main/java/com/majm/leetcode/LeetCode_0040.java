@@ -1,6 +1,7 @@
 package com.majm.leetcode;
 
 import com.majm.Solution;
+import sun.jvm.hotspot.types.CIntegerField;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -19,8 +20,66 @@ import java.util.List;
  */
 public class LeetCode_0040 implements Solution {
 
+
+    /**
+     * 1. 组合  不重复就按顺序搜索
+     * 2. 剪枝
+     *
+     * @param candidates
+     * @param target
+     * @return
+     */
     @Override
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        return solution2(candidates, target);
+    }
+
+
+    /**
+     * @param candidates
+     * @param target
+     * @return
+     */
+    private List<List<Integer>> solution2(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates);
+        backTraceSolution(candidates, 0, new ArrayList<>(), target, result);
+        return result;
+    }
+
+    /**
+     * 1. 不重复的处理
+     * 2. 同一层之间 不允许有重复的数字
+     *
+     * @param candidates
+     * @param begin
+     * @param path
+     * @param target
+     * @param result
+     */
+    private void backTraceSolution(int[] candidates, int begin, List<Integer> path, int target, List<List<Integer>> result) {
+        // terminate
+        if (target == 0) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+
+        // for choice in choiceList
+        for (int i = begin; i < candidates.length; i++) {
+            if (i == begin || candidates[i] != candidates[i - 1]) {
+                // 剪枝
+                if (target - candidates[i] < 0) {
+                    break;
+                }
+                path.add(candidates[i]);
+                backTraceSolution(candidates, i + 1, path, target - candidates[i], result);
+                path.remove(path.size() - 1);
+            }
+        }
+    }
+
+
+    private List<List<Integer>> solution1(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         if (candidates.length == 0) {
             return result;
@@ -29,6 +88,7 @@ public class LeetCode_0040 implements Solution {
         backTrace(0, new ArrayDeque<>(), target, candidates, result);
         return result;
     }
+
 
     private void backTrace(int begin, Deque<Integer> path, int target, int[] candidates, List<List<Integer>> result) {
         if (target == 0) {
