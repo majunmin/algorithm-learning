@@ -578,6 +578,17 @@ public interface Solution {
         return null;
     }
 
+    /**
+     * 376. 摆动序列
+     * https://leetcode-cn.com/problems/wiggle-subsequence/
+     *
+     * @param nums
+     * @return
+     */
+    default int wiggleMaxLength(int[] nums) {
+        return 0;
+    }
+
 
     /**
      * 413. 等差数列划分
@@ -587,6 +598,10 @@ public interface Solution {
      * @return
      */
     default int numberOfArithmeticSlices(int[] nums) {
+        return 0;
+    }
+
+    default int longestPalindromeSubseq(String s) {
         return 0;
     }
 
@@ -881,6 +896,18 @@ public interface Solution {
      */
     default boolean escapeGhosts(int[][] ghosts, int[] target) {
         return false;
+    }
+
+    /**
+     * 881. 救生艇
+     * https://leetcode-cn.com/problems/boats-to-save-people/
+     *
+     * @param people
+     * @param limit
+     * @return
+     */
+    default int numRescueBoats(int[] people, int limit) {
+        return 0;
     }
 
     /**
