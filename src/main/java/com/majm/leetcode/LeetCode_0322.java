@@ -21,8 +21,22 @@ public class LeetCode_0322 implements Solution {
      */
     @Override
     public int coinChange(int[] coins, int amount) {
-        return dpSolution(coins, amount);
+        int[] dp = new int[amount + 1];
+        int max = amount + 1;
+        // -1 做标记作用
+        Arrays.fill(dp, max);
+        dp[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                // condition
+                if (coin <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
+        }
+        return dp[amount] == max ? -1 : dp[amount];
     }
+
 
     private int dpSolution(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
@@ -116,6 +130,7 @@ public class LeetCode_0322 implements Solution {
     public static void main(String[] args) {
         LeetCode_0322 leetCode = new LeetCode_0322();
 //        System.out.println(leetCode.coinChange(new int[]{1}, 1));
+        System.out.println(leetCode.coinChange(new int[]{1}, 0));
         System.out.println(leetCode.coinChange(new int[]{2}, 3));
         System.out.println(leetCode.coinChange(new int[]{1, 2, 5}, 10));
         System.out.println(leetCode.coinChange(new int[]{1, 2, 5}, 9));

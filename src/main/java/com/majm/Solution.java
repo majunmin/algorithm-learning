@@ -272,6 +272,18 @@ public interface Solution {
     }
 
     /**
+     * 72. 编辑距离
+     * https://leetcode-cn.com/problems/edit-distance/
+     *
+     * @param word1
+     * @param word2
+     * @return
+     */
+    default int minDistance(String word1, String word2) {
+        return 0;
+    }
+
+    /**
      * 96. 不同的二叉搜索树
      * https://leetcode-cn.com/problems/unique-binary-search-trees/
      *
@@ -1779,6 +1791,19 @@ public interface Solution {
         return null;
     }
 
+
+    /**
+     * 392. 判断子序列
+     * https://leetcode-cn.com/problems/is-subsequence/
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    default boolean isSubsequence(String s, String t) {
+        return false;
+    }
+
     /**
      * 433. [最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/#/description)
      * 一条基因序列由一个带有8个字符的字符串表示，其中每个字符都属于 "A", "C", "G", "T"中的任意一个。
@@ -1993,6 +2018,19 @@ public interface Solution {
 
 
     /**
+     * 518. 零钱兑换 II
+     * https://leetcode-cn.com/problems/coin-change-2/
+     *
+     * @param amount
+     * @param coins
+     * @return
+     */
+    default int change(int amount, int[] coins) {
+        return 0;
+    }
+
+
+    /**
      * 55. 跳跃游戏
      * 给定一个非负整数数组，你最初位于数组的第一个位置。
      * <p>
@@ -2139,6 +2177,19 @@ public interface Solution {
      */
     default boolean circularArrayLoop(int[] nums) {
         return false;
+    }
+
+
+    /**
+     * 1143. 最长公共子序列
+     * https://leetcode-cn.com/problems/longest-common-subsequence/
+     *
+     * @param text1
+     * @param text2
+     * @return
+     */
+    default int longestCommonSubsequence(String text1, String text2) {
+        return 0;
     }
 
 
