@@ -613,8 +613,30 @@ public interface Solution {
         return 0;
     }
 
+    /**
+     * 447. 回旋镖的数量
+     * https://leetcode-cn.com/problems/number-of-boomerangs/
+     *
+     * @param points
+     * @return
+     */
+    default int numberOfBoomerangs(int[][] points) {
+        return 0;
+    }
+
     default int longestPalindromeSubseq(String s) {
         return 0;
+    }
+
+    /**
+     * 678. 有效的括号字符串
+     * https://leetcode-cn.com/problems/valid-parenthesis-string/
+     *
+     * @param s
+     * @return
+     */
+    default boolean checkValidString(String s) {
+        return false;
     }
 
 
