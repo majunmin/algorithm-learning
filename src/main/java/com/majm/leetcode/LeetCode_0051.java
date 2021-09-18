@@ -13,7 +13,7 @@ import java.util.Set;
  * @datetime 2020/11/6 8:38 下午
  * @since
  */
-public class LeetCode51 implements Solution {
+public class LeetCode_0051 implements Solution {
 
 
     /**
@@ -33,7 +33,7 @@ public class LeetCode51 implements Solution {
         Set<Integer> cols = new HashSet<>();
         // 在同一撇的两个皇后  row + col = const
         Set<Integer> pie = new HashSet<>();
-        // 在同一捺的两个皇后  row - col = const
+        // 在同一捺的两个皇后  row - col = const (index = col - row + n)
         Set<Integer> na = new HashSet<>();
         int row = 0;
 
@@ -82,6 +82,7 @@ public class LeetCode51 implements Solution {
      * 回溯算法
      * 时间复杂度: O(N!)
      * 空间复杂度: O(N)  皇后的数量
+     *
      * @param n
      * @return
      */

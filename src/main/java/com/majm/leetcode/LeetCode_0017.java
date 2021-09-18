@@ -15,30 +15,57 @@ import java.util.Queue;
  * @datetime 2020/11/7 11:45 上午
  * @since
  */
-public class LeetCode17 implements Solution {
+public class LeetCode_0017 implements Solution {
 
-    public static Map<Character, char[]> map = new HashMap<>();
-
-    static {
-        map.put('2', new char[]{'a', 'b', 'c'});
-        map.put('3', new char[]{'d', 'e', 'f'});
-        map.put('4', new char[]{'g', 'h', 'i'});
-        map.put('5', new char[]{'j', 'k', 'l'});
-        map.put('6', new char[]{'m', 'n', 'o'});
-        map.put('7', new char[]{'p', 'q', 'r', 's'});
-        map.put('8', new char[]{'t', 'u', 'v'});
-        map.put('9', new char[]{'w', 'x', 'y', 'z'});
-    }
+    public Map<Character, char[]> map = new HashMap<Character, char[]>() {{
+        put('2', new char[]{'a', 'b', 'c'});
+        put('3', new char[]{'d', 'e', 'f'});
+        put('4', new char[]{'g', 'h', 'i'});
+        put('5', new char[]{'j', 'k', 'l'});
+        put('6', new char[]{'m', 'n', 'o'});
+        put('7', new char[]{'p', 'q', 'r', 's'});
+        put('8', new char[]{'t', 'u', 'v'});
+        put('9', new char[]{'w', 'x', 'y', 'z'});
+    }};
 
     @Override
     public List<String> letterCombinations(String digits) {
-
-        return solution3(digits);
+        return backTraceSolution2(digits);
     }
+
+    private List<String> backTraceSolution2(String digits) {
+        //        if (digits == null || digits.length() == 0) {
+//            return new ArrayList<>();
+//        }
+        List<String> result = new ArrayList<>();
+        backTrace2(0, "", digits, result);
+        return result;
+    }
+
+    private void backTrace2(int level, String path, String digits, List<String> result) {
+        // terminate
+        if (level == digits.length()) {
+            // 边界条件
+            if (level != 0) {
+                result.add(path);
+            }
+            return;
+        }
+        char[] chars = map.get(digits.charAt(level));
+        // 跳过 invalid char
+        if (chars == null) {
+            backTrace2(level + 1, path, digits, result);
+        }
+        // for choice in choiceList
+        for (char aChar : chars) {
+            backTrace2(level + 1, path + aChar, digits, result);
+        }
+    }
+
 
     /**
      * 递归的方式
-     *
+     * <p>
      * 时间复杂度: O()
      * 空间复杂度: O()
      *
@@ -46,7 +73,7 @@ public class LeetCode17 implements Solution {
      * @return
      */
     private List<String> solution3(String digits) {
-        if (digits == null || digits.length() == 0){
+        if (digits == null || digits.length() == 0) {
             return new ArrayList();
         }
         List<String> result = new ArrayList<>();
@@ -98,7 +125,7 @@ public class LeetCode17 implements Solution {
      * 空间复杂度 O(m + n)   (递归调用的层数)
      * (m: 3 个字母的数字个数 n: 4个字母的数字个数)
      */
-    public List<String> solution1(String digits) {
+    public List<String> backTraceSolution(String digits) {
         List<String> result = new ArrayList<>();
         char[] numsChar = digits.toCharArray();
         backtrace(numsChar, new StringBuilder(), 0, result);
@@ -127,5 +154,12 @@ public class LeetCode17 implements Solution {
             backtrace(numsChar, sBuilder, depth + 1, result);
             sBuilder.deleteCharAt(depth);
         }
+    }
+
+
+    public static void main(String[] args) {
+        final Solution leetCode = new LeetCode_0017();
+        System.out.println(leetCode.letterCombinations("23"));
+        System.out.println(leetCode.letterCombinations(""));
     }
 }

@@ -4,6 +4,7 @@ import com.majm.Solution;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * @author majunmin
@@ -11,15 +12,35 @@ import java.util.Deque;
  * @datetime 2020/10/29 12:18 上午
  * @since
  */
-public class LeetCode1021 implements Solution {
+public class LeetCode_1021 implements Solution {
 
     @Override
-    public String removeOuterParentheses(String S) {
-        return solution2(S);
+    public String removeOuterParentheses(String s) {
+        /**
+         * 时间复杂度: O(N)
+         * 空间复杂度: O(N)
+         */
+        StringBuilder result = new StringBuilder();
+        Deque<Character> stack = new LinkedList<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                if (!stack.isEmpty()) {
+                    result.append(c);
+                }
+                stack.push(c);
+            } else {
+                stack.pop();
+                if (!stack.isEmpty()) {
+                    result.append(c);
+                }
+            }
+        }
+        return result.toString();
     }
 
     /**
      * 指针法 遍历
+     *
      * @param s
      * @return
      */
@@ -35,7 +56,6 @@ public class LeetCode1021 implements Solution {
                 if (count-- > 1){
                     sBuilder.append(c);
                 }
-
             }
         }
         return sBuilder.toString();
@@ -43,17 +63,17 @@ public class LeetCode1021 implements Solution {
 
     /**
      * 栈
+     * <p>
      * 时间复杂度 O(N)
      * 空间复杂度 O(N)
-     * @param S
+     *
+     * @param s
      * @return
      */
-    private String solution1(String S) {
+    private String solution1(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         StringBuilder sBuilder = new StringBuilder();
-        for (int i = 0; i < S.length(); i++) {
-            char c = S.charAt(i);
-
+        for (char c : s.toCharArray()) {
             if (c == '(') {
                 if (!stack.isEmpty()) {
                     sBuilder.append(c);

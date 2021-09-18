@@ -15,17 +15,19 @@ import java.util.List;
  * @datetime 2020/10/29 12:03 上午
  * @since
  */
-public class LeetCode94 implements Solution {
+public class LeetCode_0094 implements Solution {
 
 
     @Override
     public List<Integer> inorderTraversal(TreeNode root) {
-
         List<Integer> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
         Deque<TreeNode> stack = new LinkedList<>();
         TreeNode node = root;
-        while (node != null || !stack.isEmpty()) {
-            while (node != null) {
+        while (!stack.isEmpty() || node != null) {
+            while(node != null){
                 stack.push(node);
                 node = node.left;
             }

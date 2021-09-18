@@ -12,13 +12,20 @@ import java.util.Queue;
  * @datetime 2020/11/3 8:16 下午
  * @since
  */
-public class LeetCode226 implements Solution {
-
+public class LeetCode_0226 implements Solution {
 
 
     @Override
     public TreeNode invertTree(TreeNode root) {
-        return solution2(root);
+
+        if (root == null) {
+            return null;
+        }
+        // swap treeNode(left, right)
+        TreeNode temp = root.left;
+        root.left = invertTree(root.right);
+        root.right = invertTree(temp);
+        return root;
     }
 
 
@@ -27,17 +34,18 @@ public class LeetCode226 implements Solution {
      * 需要一个而外的存储结构 queue
      * 时间复杂度 O(N)
      * 空间复杂度 O(N)
+     *
      * @param root
      * @return
      */
     private TreeNode solution2(TreeNode root) {
-        if (root == null){
+        if (root == null) {
             return null;
         }
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
 
             // 交换其左右节点
@@ -60,14 +68,15 @@ public class LeetCode226 implements Solution {
 
     /**
      * 递归 (DFS)
-     *
+     * <p>
      * 时间复杂度 O(N)
      * 空间复杂度 O(N)
+     *
      * @param root
      * @return
      */
     public TreeNode solution1(TreeNode root) {
-        if (root == null){
+        if (root == null) {
             return root;
         }
 

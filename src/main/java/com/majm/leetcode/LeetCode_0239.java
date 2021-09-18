@@ -3,7 +3,11 @@ package com.majm.leetcode;
 import com.majm.Solution;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -13,12 +17,70 @@ import java.util.Queue;
  * @datetime 2020/10/29 5:38 下午
  * @since
  */
-public class LeetCode239 implements Solution {
-
+public class LeetCode_0239 implements Solution {
 
     @Override
     public int[] maxSlidingWindow(int[] nums, int k) {
-        return null;
+        if (k == 0) {
+            return new int[0];
+        }
+        int len = nums.length;
+        int[] result = new int[len - k + 1];
+        // store index 单调递减栈
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < k; i++) {
+            offerEle(stack, i, nums);
+        }
+        result[0] = nums[stack.getLast()];
+        for (int i = k; i < len; i++) {
+            offerEle(stack, i, nums);
+            if (stack.getLast() < i - k +1) {
+                stack.removeLast();
+            }
+            result[i - k + 1] = nums[stack.getLast()];
+        }
+        return result;
+    }
+
+    private void offerEle(Deque<Integer> stack, int i, int[] nums) {
+        while (!stack.isEmpty() && nums[i] > nums[stack.peek()]) {
+            stack.pop();
+        }
+        stack.push(i);
+    }
+
+
+    /**
+     * 单调栈解决
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    private int[] stackSolution(int[] nums, int k) {
+        final LinkedList<Integer> deque = new LinkedList<>();
+        for (int i = 0; i < k; i++) {
+            offerElement(nums, deque, i);
+        }
+
+        int[] result = new int[nums.length - k + 1];
+        result[0] = nums[deque.getFirst()];
+        for (int i = k; i < nums.length; i++) {
+            if (deque.getFirst() <= i - k) {
+                deque.removeFirst();
+            }
+            deque.remove(i - k);
+            offerElement(nums, deque, i);
+            result[i - k + 1] = nums[deque.getFirst()];
+        }
+        return result;
+    }
+
+    private void offerElement(int[] nums, Deque<Integer> deque, int i) {
+        while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+            deque.removeLast();
+        }
+        deque.addLast(i);
     }
 
     /**
@@ -41,7 +103,7 @@ public class LeetCode239 implements Solution {
         int[] result = new int[n - k + 1];
         for (int i = 0; i < n; i++) {
             int start = i - k;
-            if (start >= 0){
+            if (start >= 0) {
                 maxHeap.remove(nums[start]);
             }
             maxHeap.offer(nums[i]);
@@ -256,5 +318,12 @@ public class LeetCode239 implements Solution {
             output[i] = max;
         }
         return output;
+    }
+
+
+    public static void main(String[] args) {
+        final LeetCode_0239 leetCode = new LeetCode_0239();
+        System.out.println(Arrays.toString(leetCode.maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
+        System.out.println(Arrays.toString(leetCode.maxSlidingWindow(new int[]{9, 11}, 2)));
     }
 }

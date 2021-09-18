@@ -12,31 +12,17 @@ import java.util.Queue;
  * @datetime 2020/10/31 5:41 下午
  * @since
  */
-public class LeetCode104 implements Solution {
+public class LeetCode_0104 implements Solution {
 
     @Override
     public int maxDepth(TreeNode root) {
-        if (root == null){
-            return 0;
-        }
-        int maxDepth = 0;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while(!queue.isEmpty()){
-            int size = queue.size();
-            while (size > 0){
-                TreeNode node = queue.poll();
-                if (node.left != null){
-                    queue.offer(node.left);
-                }
-                if (node.right != null){
-                    queue.offer(node.right);
-                }
-                size--;
-            }
-            maxDepth+=1;
-        }
-        return maxDepth;
+       if (root == null){
+           return 0;
+       }
+
+       int lDepth = maxDepth(root.left);
+       int rDepth = maxDepth(root.right);
+       return Math.max(lDepth, rDepth) + 1;
 
     }
 

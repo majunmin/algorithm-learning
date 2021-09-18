@@ -17,25 +17,23 @@ import java.util.List;
  * @datetime 2020/10/31 3:12 下午
  * @since
  */
-public class LeetCode144 implements Solution {
+public class LeetCode_0144 implements Solution {
 
     @Override
     public List<Integer> preorderTraversal(TreeNode root) {
         if (root == null) {
             return new ArrayList<>();
         }
-
         List<Integer> result = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
-        TreeNode node = root;
-        while (node != null || !stack.isEmpty()) {
-            while (node != null) {
-                result.add(node.val);
-                stack.push(node);
-                node = node.left;
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                result.add(root.val);
+                stack.push(root);
+                root = root.left;
             }
-            node = stack.pop();
-            node = node.right;
+            TreeNode node = stack.pop();
+            root = node.right;
         }
         return result;
     }
@@ -80,5 +78,13 @@ public class LeetCode144 implements Solution {
             result.addAll(preorderTraversal(root.right));
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        LeetCode_0144 leetCode = new LeetCode_0144();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        System.out.println(leetCode.preorderTraversal(root));
     }
 }

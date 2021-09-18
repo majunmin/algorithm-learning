@@ -14,7 +14,7 @@ import java.util.Set;
  * @datetime 2020/11/12 12:09 上午
  * @since
  */
-public class LeetCode127 implements Solution {
+public class LeetCode_0127 implements Solution {
 
 
     @Override

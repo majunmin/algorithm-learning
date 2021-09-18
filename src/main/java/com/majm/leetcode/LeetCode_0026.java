@@ -6,13 +6,25 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
  * @author majunmin
  * @description
  * @datetime 2020/10/27 7:42 下午
  * @since
  */
-public class LeetCode26 implements Solution {
+public class LeetCode_0026 implements Solution {
+
+    public int solution1(int[] nums) {
+        //双指针
+        int left = 0;
+        int right = 1;
+        while(right < nums.length){
+            if (nums[left] != nums[right]){
+                nums[++left] = nums[right];
+            }
+            right++;
+        }
+        return left + 1;
+    }
 
     @Override
     public int removeDuplicates(int[] nums) {
@@ -55,7 +67,7 @@ public class LeetCode26 implements Solution {
         int cur = 0;
         for (int i = 1; i < nums.length; i++) {
             if (nums[cur] != nums[i]) {
-                if (i- cur > 1) {
+                if (i - cur > 1) {
                     nums[++cur] = nums[i];
                 } else {
                     ++cur;

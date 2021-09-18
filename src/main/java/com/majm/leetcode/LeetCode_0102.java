@@ -15,7 +15,7 @@ import java.util.Queue;
  * @datetime 2020/11/8 8:22 下午
  * @since
  */
-public class LeetCode_102 implements Solution {
+public class LeetCode_0102 implements Solution {
 
 
     /**

@@ -17,7 +17,67 @@ public class Offer35 {
     private Map<Node, Node> cache = new HashMap<>();
 
     public Node copyRandomList(Node head) {
-        return iterSolution(head);
+        // iterSolution
+        // 1. 构建 链表  1 - 1' - 2 - 2' - 3 - 3' - 4 - 4' - 5 - 5'
+        // 通过 前驱节点 记忆化  random节点
+        Node prev = head;
+        while (prev != null) {
+            Node node = new Node(prev.val);
+            node.next = prev.next;
+            prev.next = node;
+            prev = node.next;
+        }
+
+        // 2. 填充  random pointer
+        prev = head;
+        while (prev != null) {
+            if (prev.random != null) {
+                prev.next.random = prev.random.next;
+            }
+            prev = prev.next.next;
+        }
+        // 3. 拆开链表, 还原
+        prev = head;
+        Node dummyNode = new Node(-1);
+        Node tmp = dummyNode;
+        while (prev != null) {
+            tmp.next = prev.next;
+            // 移除 新节点,恢复纠结点
+            prev.next = prev.next.next;
+            tmp = tmp.next;
+            prev = prev.next;
+        }
+        return dummyNode.next;
+    }
+
+    /**
+     * 解法1 : 简单解法
+     * 1. 先复制 next 指针,并构建 oldNode 和 newNode 的 映射关系
+     * 2. 根据 oldNode 构建 random指针(cache.get(oldNode.random))
+     */
+    private Node solution1(Node head) {
+        if (head == null) {
+            return null;
+        }
+
+        Node dummyNode = new Node(-1);
+        Node prev = dummyNode;
+        Node node = head;
+        while (node != null) {
+            Node curNode = new Node(node.val);
+            prev.next = curNode;
+            cache.put(node, curNode);
+            prev = prev.next;
+            node = node.next;
+        }
+        node = head;
+        Node curNode = dummyNode.next;
+        while (node != null) {
+            curNode.random = cache.get(node.random);
+            curNode = curNode.next;
+            node = node.next;
+        }
+        return dummyNode.next;
     }
 
 
@@ -88,8 +148,8 @@ public class Offer35 {
         if (!cache.containsKey(head)) {
             Node newHead = new Node(head.val);
             cache.put(head, newHead);
-            newHead.next = copyRandomList(head.next);
-            newHead.random = copyRandomList(head.random);
+            newHead.next = recurSolution(head.next);
+            newHead.random = recurSolution(head.random);
         }
         return cache.get(head);
     }

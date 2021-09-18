@@ -1,6 +1,7 @@
 package com.majm.leetcode;
 
 import com.majm.Solution;
+import com.sun.webkit.dom.DocumentFragmentImpl;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -16,7 +17,7 @@ import java.util.Map;
  * @datetime 2020/10/26 7:36 下午
  * @since
  */
-public class Leetcode20 implements Solution {
+public class LeetCode_0020 implements Solution {
 
 
     /**
