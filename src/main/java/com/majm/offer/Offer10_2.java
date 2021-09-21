@@ -38,7 +38,7 @@ public class Offer10_2 {
      * @return
      */
     private int solution1(int n) {
-        if (n == 1 || n == 2) {
+        if (n == 0 || n == 1) {
             return 1;
         }
         int[] dp = new int[n + 1];
