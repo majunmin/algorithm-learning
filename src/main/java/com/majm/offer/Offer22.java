@@ -14,6 +14,31 @@ import com.majm.common.ListNode;
 public class Offer22 {
 
     public ListNode getKthFromEnd(ListNode head, int k) {
+        ListNode slow = head;
+        ListNode fast = head;
+        for (int i = 0; i < k; i++) {
+            if (fast == null) {
+                throw new IllegalArgumentException();
+            }
+            fast = fast.next;
+        }
+        // 移动指针
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+
+    /**
+     * 快慢指针解法
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    private ListNode solution(ListNode head, int k) {
         // 异常处理
         // 快慢指针
         ListNode slow = head;
