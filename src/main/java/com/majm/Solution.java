@@ -82,6 +82,18 @@ public interface Solution {
     }
 
     /**
+     * 25. K 个一组翻转链表
+     * https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    default ListNode reverseKGroup(ListNode head, int k) {
+        return null;
+    }
+
+    /**
      * 53. 最大子序和
      * https://leetcode-cn.com/problems/maximum-subarray/
      *
@@ -92,6 +104,17 @@ public interface Solution {
         return 0;
     }
 
+
+    /**
+     * 58. 最后一个单词的长度
+     * https://leetcode-cn.com/problems/length-of-last-word/
+     *
+     * @param s
+     * @return
+     */
+    default int lengthOfLastWord(String s) {
+        return 0;
+    }
 
     /**
      * 62. 不同路径
@@ -130,22 +153,6 @@ public interface Solution {
 
     /**
      * letcode 66
-     * <p>
-     * plus One
-     * 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
-     * 最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
-     * 你可以假设除了整数 0 之外，这个整数不会以零开头。
-     * ```
-     * 示例 1:
-     * <p>
-     * 输入: [1,2,3]
-     * 输出: [1,2,4]
-     * 解释: 输入数组表示数字 123。
-     * 示例 2:
-     * <p>
-     * 输入: [4,3,2,1]
-     * 输出: [4,3,2,2]
-     * 解释: 输入数组表示数字 4321。
      *
      * @param digits
      */
@@ -367,6 +374,17 @@ public interface Solution {
         return null;
     }
 
+    /**
+     * 215. 数组中的第K个最大元素
+     * https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    default int findKthLargest(int[] nums, int k) {
+        return 0;
+    }
 
     /**
      * 221. 最大正方形
@@ -376,6 +394,19 @@ public interface Solution {
      * @return
      */
     default int maximalSquare(char[][] matrix) {
+        return 0;
+    }
+
+    /**
+     * 224. 基本计算器
+     * https://leetcode-cn.com/problems/basic-calculator/
+     * 772. 基本计算器III
+     * https://leetcode-cn.com/problems/basic-calculator/
+     *
+     * @param s
+     * @return
+     */
+    default int calculate(String s) {
         return 0;
     }
 
@@ -430,14 +461,6 @@ public interface Solution {
 
     /**
      * 141. [环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
-     * 给定一个链表，判断链表中是否有环。
-     * <p>
-     * 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
-     * 如果链表中存在环，则返回 true 。 否则，返回 false 。
-     * <p>
-     * <p>
-     * 进阶：
-     * 你能用 O(1)（即，常量）内存解决此问题吗？
      *
      * @param head
      * @return
@@ -480,23 +503,6 @@ public interface Solution {
 
     /**
      * 24. 两两交换链表中的节点
-     * <p>
-     * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
-     * 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
-     * <p>
-     * 示例 1：
-     * <p>
-     * <p>
-     * 输入：head = [1,2,3,4]
-     * 输出：[2,1,4,3]
-     * 示例 2：
-     * <p>
-     * 输入：head = []
-     * 输出：[]
-     * 示例 3：
-     * <p>
-     * 输入：head = [1]
-     * 输出：[1]
      *
      * @param head
      * @return
@@ -564,6 +570,18 @@ public interface Solution {
      */
     default String minWindow(String s, String t) {
         return "";
+    }
+
+
+    /**
+     * 292. Nim 游戏
+     * https://leetcode-cn.com/problems/nim-game/
+     *
+     * @param n
+     * @return
+     */
+    default boolean canWinNim(int n) {
+        return false;
     }
 
     /**
@@ -663,34 +681,6 @@ public interface Solution {
 
     /**
      * 20. 有效的括号
-     * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
-     * <p>
-     * 有效字符串需满足：
-     * <p>
-     * 左括号必须用相同类型的右括号闭合。
-     * 左括号必须以正确的顺序闭合。
-     * 注意空字符串可被认为是有效字符串。
-     * <p>
-     * 示例 1:
-     * <p>
-     * 输入: "()"
-     * 输出: true
-     * 示例 2:
-     * <p>
-     * 输入: "()[]{}"
-     * 输出: true
-     * 示例 3:
-     * <p>
-     * 输入: "(]"
-     * 输出: false
-     * 示例 4:
-     * <p>
-     * 输入: "([)]"
-     * 输出: false
-     * 示例 5:
-     * <p>
-     * 输入: "{[]}"
-     * 输出: true
      *
      * @param s
      * @return
@@ -809,44 +799,6 @@ public interface Solution {
 
     /**
      * 26. 删除排序数组中的重复项
-     * 给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
-     * <p>
-     * 不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
-     * <p>
-     * <p>
-     * <p>
-     * 示例 1:
-     * <p>
-     * 给定数组 nums = [1,1,2],
-     * <p>
-     * 函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。
-     * <p>
-     * 你不需要考虑数组中超出新长度后面的元素。
-     * 示例 2:
-     * <p>
-     * 给定 nums = [0,0,1,1,1,2,2,3,3,4],
-     * <p>
-     * 函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
-     * <p>
-     * 你不需要考虑数组中超出新长度后面的元素。
-     * <p>
-     * <p>
-     * 说明:
-     * <p>
-     * 为什么返回数值是整数，但输出的答案是数组呢?
-     * <p>
-     * 请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
-     * <p>
-     * 你可以想象内部操作如下:
-     * <p>
-     * // nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
-     * int len = removeDuplicates(nums);
-     * <p>
-     * // 在函数里修改输入数组对于调用者是可见的。
-     * // 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
-     * for (int i = 0; i < len; i++) {
-     * print(nums[i]);
-     * }
      *
      * @param nums
      * @return
@@ -907,6 +859,20 @@ public interface Solution {
         return false;
     }
 
+
+    /**
+     * 725. 分隔链表
+     * https://leetcode-cn.com/problems/split-linked-list-in-parts/
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    default ListNode[] splitListToParts(ListNode head, int k) {
+        return null;
+    }
+
+
     /**
      * 740. 删除并获得点数
      * https://leetcode-cn.com/problems/delete-and-earn/
@@ -944,31 +910,6 @@ public interface Solution {
 
     /**
      * 1207. 独一无二的出现次数
-     * 给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。
-     * <p>
-     * 如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。
-     * <p>
-     * <p>
-     * <p>
-     * 示例 1：
-     * <p>
-     * 输入：arr = [1,2,2,1,1,3]
-     * 输出：true
-     * 解释：在该数组中，1 出现了 3 次，2 出现了 2 次，3 只出现了 1 次。没有两个数的出现次数相同。
-     * 示例 2：
-     * <p>
-     * 输入：arr = [1,2]
-     * 输出：false
-     * 示例 3：
-     * <p>
-     * 输入：arr = [-3,0,1,-3,1,1,1,-3,10,0]
-     * 输出：true
-     * <p>
-     * <p>
-     * 提示：
-     * <p>
-     * 1 <= arr.length <= 1000
-     * -1000 <= arr[i] <= 1000
      *
      * @param arr
      * @return
