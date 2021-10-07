@@ -96,7 +96,7 @@ public class LeetCode_0322 implements Solution {
             }
         }
         // assemble cache
-        cache[amount] = min == Integer.MAX_VALUE ? -1 : min;
+        cache[amount] = (min == Integer.MAX_VALUE) ? -1 : min;
         return cache[amount];
     }
 
@@ -123,7 +123,7 @@ public class LeetCode_0322 implements Solution {
                 min = Math.min(min, res);
             }
         }
-        return min == Integer.MAX_VALUE ? -1 : min + 1;
+        return (min == Integer.MAX_VALUE ? -1 : min) + 1;
     }
 
 

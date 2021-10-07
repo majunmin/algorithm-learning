@@ -33,11 +33,11 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     }
 
     public boolean isRed(Node n) {
-        return Objects.isNull(n.color)? BLACK : n.color == RED;
+        return Objects.isNull(n.color) ? BLACK : n.color == RED;
     }
 
     public int size(Node n) {
-        return Objects.isNull(n)? 0 : n.size;
+        return Objects.isNull(n) ? 0 : n.size;
     }
 
     public int size() {

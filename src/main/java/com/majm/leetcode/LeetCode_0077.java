@@ -18,7 +18,33 @@ public class LeetCode_0077 implements Solution {
     @Override
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
-        dfs(1, new ArrayList<Integer>(), n, k, result);
+        backTrace2(1, new ArrayList<>(), n, k, result);
+        return result;
+    }
+
+    private void backTrace2(int begin, List<Integer> path, int n, int k, List<List<Integer>> result) {
+        // 剪枝
+        if (path.size() + (n - begin + 1) < k){
+            return;
+        }
+        // terminate
+        if (path.size() == k) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+
+        // for choice in choiceList
+        for (int i = begin; i <= n; i++) {
+            path.add(i);
+            backTrace2(i + 1, path, n, k, result);
+            path.remove(path.size() - 1);
+        }
+    }
+
+
+    private List<List<Integer>> dfsSolution2(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(1, new ArrayList<>(), n, k, result);
         return result;
     }
 

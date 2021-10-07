@@ -20,7 +20,7 @@ public class LeetCode_0122 implements Solution {
     public int maxProfit(int[] prices) {
         // 定义好状态 0 持有现金 1. 持有股票
         int cash = 0;
-        int hold = - prices[0];
+        int hold = -prices[0];
         int preCash = cash;
         int preHold = hold;
         for (int i = 1; i < prices.length; i++) {

@@ -26,17 +26,11 @@ public class LeetCode_0121 implements Solution {
      */
     @Override
     public int maxProfit(int[] prices) {
-        // 单调栈解法
-        // 单调栈存储最小price, 遍历后面的值(计算最大收益)
+        int minPrice = prices[0];
         int maxProfit = 0;
-        Deque<Integer> stack = new ArrayDeque<>();
-        stack.push(prices[0]);
         for (int i = 1; i < prices.length; i++) {
-            maxProfit = Math.max(maxProfit, prices[i] - stack.peek());
-            if (stack.peek() > prices[i]) {
-                stack.pop();
-                stack.push(prices[i]);
-            }
+            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+            minPrice = Math.min(minPrice, prices[i]);
         }
         return maxProfit;
     }

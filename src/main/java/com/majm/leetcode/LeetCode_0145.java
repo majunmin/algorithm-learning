@@ -2,12 +2,11 @@ package com.majm.leetcode;
 
 import com.majm.Solution;
 import com.majm.common.TreeNode;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,9 +19,36 @@ import java.util.List;
  */
 public class LeetCode_0145 implements Solution {
 
+    /**
+     * 主要方式是 记录上一次打印的 右子节点
+     *
+     * @param root
+     * @return
+     */
     @Override
     public List<Integer> postorderTraversal(TreeNode root) {
-        return postOrder(root);
+        List<Integer> result = new ArrayList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+
+        TreeNode prev = null;  // 记忆化 已经处理过的右节点
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            TreeNode node = stack.pop();
+            //  1. 什么时候 会将当前结果加入到 result 中?
+            // 2. prev 节点的含义?
+            if (node.right == null || node.right == prev) {
+                prev = node;
+                result.add(node.val);
+            } else {
+                stack.push(node);
+                root = node.right;
+            }
+
+        }
+        return result;
     }
 
     private List<Integer> postOrder(TreeNode root) {
@@ -100,5 +126,15 @@ public class LeetCode_0145 implements Solution {
             result.add(root.val);
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        final LeetCode_0145 leetCode = new LeetCode_0145();
+        final List<Integer> res = leetCode.postorderTraversal(root);
+        System.out.println(res);
+
     }
 }

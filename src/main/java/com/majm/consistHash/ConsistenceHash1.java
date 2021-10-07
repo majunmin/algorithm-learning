@@ -46,7 +46,7 @@ public class ConsistenceHash1 {
         }
 
         SortedMap<Integer, String> tailMap = sortedMap.tailMap(hash);
-        if (MapUtils.isEmpty(tailMap)){
+        if (MapUtils.isEmpty(tailMap)) {
             return sortedMap.get(sortedMap.firstKey());
         } else {
             return sortedMap.get(tailMap.firstKey());

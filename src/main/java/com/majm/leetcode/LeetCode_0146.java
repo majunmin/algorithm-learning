@@ -1,10 +1,14 @@
 package com.majm.leetcode;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.function.BiConsumer;
 
 /**
  * https://leetcode-cn.com/problems/lru-cache/ </br>
+ * <p>
+ * HashMap + LinkedList  => lru 保证 O(1)的查询时间复杂度
  * <p>
  * 146. LRU 缓存机制
  *
@@ -15,9 +19,97 @@ import java.util.Map;
  */
 public class LeetCode_0146 {
 
+    private static class LRUCache<Key, Value> {
+
+        private class Node {
+            private final Key key;
+            private Value value;
+
+            public Node(Key key, Value value) {
+                this.key = key;
+                this.value = value;
+            }
+        }
+
+        private Map<Key, Node> cache; //  保证O(1)的时间复杂度
+        private LinkedList<Node> list; // 维护最新访问节点
+
+        private int size;
+        private int capacity;
+
+        private BiConsumer<Key, Value> onEvict;
+
+
+        public LRUCache(int capacity) {
+            this.capacity = capacity;
+            this.cache = new HashMap<>(capacity);
+            this.list = new LinkedList<>();
+            onEvict = (k, v) -> {
+            };
+        }
+
+        public LRUCache(int capacity, BiConsumer<Key, Value> onEvict) {
+            this.capacity = capacity;
+            this.cache = new HashMap<>(capacity);
+            this.list = new LinkedList<>();
+            this.onEvict = onEvict;
+        }
+
+        public Value get(Key key) {
+            if (cache == null) {
+                throw new IllegalArgumentException();
+            }
+
+            if (!cache.containsKey(key)) {
+                return null;
+            }
+            final Node node = cache.get(key);
+            moveToHead(node);
+            return node.value;
+        }
+
+        private void moveToHead(Node node) {
+            list.remove(node);
+            list.addFirst(node);
+        }
+
+        private void removeLatest() {
+            final Node node = list.getLast();
+            remove(node.key);
+        }
+
+        public void put(Key key, Value value) {
+            if (cache.containsKey(key)) {
+                final Node node = cache.get(key);
+                node.value = value;
+                moveToHead(node);
+                return;
+            }
+
+            final Node node = new Node(key, value);
+            cache.put(key, node);
+            list.addFirst(node);
+            if (cache.size() > capacity) {
+                removeLatest();
+            }
+        }
+
+        public void remove(Key key) {
+            final Node node = cache.remove(key);
+            if (node == null) {
+                return;
+            }
+            if (onEvict != null) {
+                onEvict.accept(node.key, node.value);
+            }
+            size--;
+            list.remove(node);
+        }
+    }
+
 
     public static void main(String[] args) {
-        final LRUCache cache = new LRUCache(2);
+        final LRUCache<Integer, Integer> cache = new LRUCache<>(2);
         cache.put(1, 1);
         cache.put(2, 2);
 

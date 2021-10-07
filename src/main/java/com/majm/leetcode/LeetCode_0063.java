@@ -15,8 +15,29 @@ public class LeetCode_0063 implements Solution {
 
     @Override
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        return solution1(obstacleGrid);
+        int rowSize = obstacleGrid.length;
+        int colSize = obstacleGrid[0].length;
+        if (obstacleGrid[0][0] == 1) {
+            return 0;
+        }
+        int[] dp = new int[colSize];
+        for (int i = 0; i < colSize && obstacleGrid[0][i] != 1; i++) {
+            dp[i] = 1;
+        }
+        for (int i = 1; i < rowSize; i++) {
+            for (int j = 0; j < colSize; j++) {
+                // 特殊考虑第一列
+                if (obstacleGrid[i][j] == 1) {
+                    dp[j] = 0;
+                }
+                if (obstacleGrid[i][j] != 1 && j > 0) {
+                    dp[j] += dp[j - 1];
+                }
+            }
+        }
+        return dp[colSize - 1];
     }
+
 
     private int solution1(int[][] obstacleGrid) {
         int m = obstacleGrid.length;

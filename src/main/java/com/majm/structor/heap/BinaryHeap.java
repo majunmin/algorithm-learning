@@ -4,9 +4,7 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
- *
  * 参考: https://shimo.im/docs/Lw86vJzOGOMpWZz2/read
- *
  *
  * @author majunmin
  * @description
@@ -43,7 +41,6 @@ public class BinaryHeap {
     }
 
     /**
-     *
      * @param idx 当前索引值
      */
     private void heapifiUp(int idx) {
@@ -91,14 +88,23 @@ public class BinaryHeap {
 
     /**
      * find 该节点两个子节点的最大的 索引
-     * @param idx
+     *
+     * @param parent
      * @return
      */
-    private int maxChild(int idx) {
-        int leftChild = child(idx, 1);
-        int rightChild = child(idx, 2);
+    private int maxChild(int parent) {
+        if (parent * d + 1 >= heapSize) {
+            return -1;
+        }
+        int maxPos = child(parent, 1);
+        for (int i = 2; i <= d; i++) {
+            int child = child(parent, i);
+            if (child > heap[maxPos]) {
+                maxPos = child;
+            }
+        }
 
-        return heap[leftChild] > heap[rightChild] ? leftChild : rightChild;
+        return maxPos;
     }
 
     public void printHeap() {
@@ -107,17 +113,16 @@ public class BinaryHeap {
 
     }
 
-    public int parent(int idx){
+    public int parent(int idx) {
         return (idx - 1) / d;
     }
 
     /**
-     *
      * @param i index
      * @param k child 的 位置 1， 2
      * @return
      */
-    public int child(int i, int k){
+    public int child(int i, int k) {
         return d * i + k;
     }
 
@@ -126,7 +131,6 @@ public class BinaryHeap {
     }
 
     public static void main(String[] args) {
-        System.out.println(-1 / 2);
 
         BinaryHeap binaryHeap = new BinaryHeap(16);
         binaryHeap.insert(0);

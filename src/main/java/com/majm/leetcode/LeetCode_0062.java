@@ -2,7 +2,6 @@ package com.majm.leetcode;
 
 import com.majm.Solution;
 
-import javax.naming.spi.DirObjectFactory;
 import java.util.Arrays;
 
 /**
@@ -26,9 +25,18 @@ public class LeetCode_0062 implements Solution {
     }
 
     private int dpSolution3(int m, int n) {
+        if (m == 0 || n == 0) {
+            return 0;
+        }
         int[] prev = new int[n];
         Arrays.fill(prev, 1);
-        return 0;
+        // 一行一行填充
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                prev[j] += prev[j - 1];
+            }
+        }
+        return prev[n - 1];
     }
 
 
@@ -57,25 +65,6 @@ public class LeetCode_0062 implements Solution {
         return cur[n - 1];
     }
 
-
-    /**
-     * 递归解法
-     *
-     * @param m
-     * @param n
-     * @return
-     */
-    private int dfsSolution(int m, int n) {
-        if (m == 0 && n == 0) {
-            return 0;
-        }
-        if (m < 0 || n < 0) {
-            throw new IllegalArgumentException();
-        }
-        int[][] memo = new int[m][n];
-        return tryUniquePaths(memo, m - 1, n - 1);
-    }
-
     /**
      * 动态规划 1
      * - 空间优化
@@ -97,6 +86,25 @@ public class LeetCode_0062 implements Solution {
             }
         }
         return path[m - 1][n - 1];
+    }
+
+
+    /**
+     * 递归解法
+     *
+     * @param m
+     * @param n
+     * @return
+     */
+    private int dfsSolution(int m, int n) {
+        if (m == 0 && n == 0) {
+            return 0;
+        }
+        if (m < 0 || n < 0) {
+            throw new IllegalArgumentException();
+        }
+        int[][] memo = new int[m][n];
+        return tryUniquePaths(memo, m - 1, n - 1);
     }
 
     private int tryUniquePaths(int[][] memo, int row, int col) {

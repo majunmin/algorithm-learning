@@ -1,6 +1,5 @@
 package com.majm.consistHash;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 
 import java.util.List;
@@ -43,12 +42,10 @@ public class ConsistenceHash2 {
         hash += hash << 5;
 
         // 如果算出来的值为负数则取其绝对值
-        if (hash < 0)
-            hash = Math.abs(hash);
-        return hash;
+        return hash < 0 ? -hash : hash;
     }
 
-    String getServer(Integer hash, List<String> serverHosts){
+    String getServer(Integer hash, List<String> serverHosts) {
 
         for (String serverHost : serverHosts) {
             for (int i = 0; i < VIRTUAL_NODES; i++) {
@@ -59,8 +56,8 @@ public class ConsistenceHash2 {
         }
 
         SortedMap<Integer, String> tailMap = sortedMap.tailMap(hash);
-        String virtualNode ;
-        if (MapUtils.isEmpty(tailMap)){
+        String virtualNode;
+        if (MapUtils.isEmpty(tailMap)) {
             virtualNode = sortedMap.get(sortedMap.firstKey());
         } else {
             virtualNode = sortedMap.get(tailMap.firstKey());

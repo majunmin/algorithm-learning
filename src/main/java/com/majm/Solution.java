@@ -309,6 +309,30 @@ public interface Solution {
         return false;
     }
 
+    /**
+     * 112. 路径总和
+     * https://leetcode-cn.com/problems/path-sum/
+     *
+     * @param root
+     * @param targetSum
+     * @return
+     */
+    default boolean hasPathSum(TreeNode root, int targetSum) {
+        return false;
+    }
+
+    /**
+     * 113. 路径总和 II
+     * https://leetcode-cn.com/problems/path-sum-ii/
+     *
+     * @param root
+     * @param targetSum
+     * @return
+     */
+    default List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        return null;
+    }
+
 
     /**
      * 118. 杨辉三角
@@ -607,6 +631,18 @@ public interface Solution {
     }
 
     /**
+     * 371. 两整数之和
+     * https://leetcode-cn.com/problems/sum-of-two-integers/
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    default int getSum(int a, int b) {
+        return 0;
+    }
+
+    /**
      * 376. 摆动序列
      * https://leetcode-cn.com/problems/wiggle-subsequence/
      *
@@ -626,6 +662,18 @@ public interface Solution {
      * @return
      */
     default int numberOfArithmeticSlices(int[] nums) {
+        return 0;
+    }
+
+    /**
+     * 437. 路径总和 III
+     * https://leetcode-cn.com/problems/path-sum-iii/
+     *
+     * @param root
+     * @param targetSum
+     * @return
+     */
+    default int pathSum2(TreeNode root, int targetSum) {
         return 0;
     }
 
